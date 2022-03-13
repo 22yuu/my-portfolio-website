@@ -96,7 +96,8 @@ p {
 #navbar.navbar--dark {
     background-color: var(--color-pink);
     padding: 8px;
-    transition: all .3s ease-in-out
+    transition: all .3s ease-in-out;
+    z-index: 1;
 }
 .navbar__menu {
     display: flex;
