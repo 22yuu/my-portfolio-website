@@ -32,6 +32,30 @@ homeContacttBtn.addEventListener('click', () => {
     scrollIntoView('#contact');
 })
 
+// Make home slowly fade to transparent as the window scrolls down
+const home = document.querySelector('#home');
+const homeContent = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+    homeContent.style.opacity = 1 - window.scrollY / homeHeight;
+})
+
+// Show "arrow up" button when scrolling down
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+    if(window.scrollY > homeHeight/2) {
+        arrowUp.classList.add('visible');
+    } else {
+        arrowUp.classList.remove('visible');
+    }
+})
+
+// Handle click on "arrow up" button
+arrowUp.addEventListener('click', () => {
+    console.log('arrow up clicked')
+    scrollIntoView('#home');
+})
+
 function scrollIntoView(selectior) {
     const scrollTo = document.querySelector(selectior);
     scrollTo.scrollIntoView({ behavior: 'smooth'});
